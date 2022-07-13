@@ -1,0 +1,4 @@
+.DS_Store
+/screenshots
+/*.DS_Store : hidden temp file -> dont;t wanna upload to git-> .gitignore flie name you wnat */
+      

@@ -1,0 +1,35 @@
+/*이걸 따로 빼주는게 좋음 css코드를 여러파일로 분할
+했다가 합침*/
+.status-bar {
+  display: flex;
+  position: fixed;
+  width:100%;
+  box-sizing: border-box;
+  /*justify-content: space-between;
+    /*space betwwen 대신 말 그대로 중심 */
+  justify-content: center;
+  padding: 5px 3px;
+}
+.status-bar__column {
+  width: 33%; /*모든 콜럼을 33% 너비*/
+}
+
+.status-bar__column:first-child span {
+  margin-right: 5px;
+}
+
+.status-bar__column:nth-child(2) span {
+  display: flex;
+  justify-content: center;
+  /*두번째만 너비의 중간으로*/
+}
+
+.status-bar__column:last-child {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.status-bar__column .fa-battery-full {
+  margin: 0px 5px;
+}

@@ -1,0 +1,56 @@
+#friends-display-link{
+    text-align: center;
+    display: block;
+    background-color: #fafafa;
+    padding: 15px 0px;
+    font-size: 18px;
+    margin-bottom: 5px; 
+    margin-top: -10px;
+}
+
+#friends-display-link i{
+    color: rgba(0,0,0,0.3);
+}
+.friends-screen__channel{
+    margin-top: 25px;
+    border-top:var(--main-border);
+    padding-top: 15px;
+}
+.friends-screen__channel-header{
+    margin-bottom: 30px;
+    display:flex;
+    justify-content: space-between;
+    color:rgba(0, 0, 0,.5);
+}
+@keyframes hideSplashScreen {
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+        visibility: hidden;
+        /*visibility 0 룰 쓰면 마우스가 클릭은 할 수 있지만 
+        여전히 splash가 요소로 없어지지 않고 html에 남아있음
+        js 사용해서 없애야함
+        */
+    }
+}
+#splash-screen{
+    /*cover everything = 맨 위 layer로 오게 함*/
+    background-color: var(--yellow);
+    position: absolute;
+    /*align to body*/
+    height: 100vh;
+    /*100vh = 100% of screen height*/
+    width: 100vw;
+    /*100vw = 100% of screen width*/
+    top:0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 132px;
+    animation: hideSplashScreen 0.4s ease-in-out forwards;
+    /*forwards : 마지막 keyframes동작을 기억함*/
+    animation-delay: 2s;
+    /*delay aninamation*/
+}

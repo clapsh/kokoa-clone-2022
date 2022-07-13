@@ -1,0 +1,80 @@
+<!--대부분의 웹서버가 디폴트로 index(첫번째).html을 찾아보도록
+설정되어있음 
+단축기 : ! , 엔터 -> 기본 바탕 ! 
+column은 너무 기본적이 ㄴ자주쓰일 이름이므로 div__coloum추천 ->
+convention(관습) : BEM(Block Element Modifier)쉽게 일기는 css
+
+modifier -- btn--big btn--orange
+id인지 class인지 기억하기 힘듬 -> 모두 class로 작성하기로 결정
+BEM / id class 사용 어떤게 좋은지 선택! 
+heroicon -> copy and use
+<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <path d="M12 14l9-5-9-5-9 5 9 5z" />
+  <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
+</svg>-> svg 픽셀이 아닌 ㅔㅁ소로 되어있는 것
+fontAwsome -> code kit : js file 
+script src="https://kit.fontawesome.com/6478f529f2.js"
+crossorigin="anonymous"
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--link:css 엔터 -> 단축키-->
+    <link rel="stylesheet" href="css/styles.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to Kokoa Clone</title>
+  </head>
+  <body>
+    <div class="status-bar">
+      <div class="status-bar__column">
+        <span>No Service</span>
+        <!--To Do : Wifi Icon 이 클래스는 script에서 만들어 낸것-->
+        <i class="fas fa-wifi"></i>
+      </div>
+      <div class="status-bar__column">
+        <span>18:43</span>
+      </div>
+      <div class="status-bar__column">
+        <span>110%</span>
+        <!--Todo : BAttery Icon. fa-lg: 아이콘을 더 크게-->
+        <i class="fas fa-battery-full fa-lg"></i>
+        <!--lLightning Icon-->
+        <i class="fas fa-bolt"></i>
+      </div>
+    </div>
+
+    <header class="welcome-header">
+      <h1 class="welcome-header__title">Welcome to Kokoa Clone</h1>
+      <p class="welcome-header__text">
+        If you have a Kokoa Account, log in with your email or phone number.
+      </p>
+    </header>
+    <!--form 이 하나박ㄱ에 없을 것 같으므로 id를 줌-->
+    <!--
+      [ form ] 
+      action : 어떤 페이지로 data를 보낼 것인지
+      method :  post , get<-url 에 저장 
+      name 에 저장 된 값 
+      quer :  /username="입력한값"&password="입력한값"
+    -->
+    <form action="friends.html" method="get" id="login-form">
+      <input name="username" type="text" placeholder="Email or phone number" />
+      <input name="password" type="password" placeholder="password" />
+      <input type="submit" value="Log In" />
+      <a href="#">Find Kokoa Account or Password</a>
+      <!--login-form을 이용해서 링크 선택 css/ 이것만을 위한 id나 class 만들고 싶지 X-->
+    </form>
+  </body>
+
+  <div id="no-mobile">
+    <span>Your screen is too big.</span>
+  </div>
+  <!--always go last-->
+  <script
+    src="https://kit.fontawesome.com/6478f529f2.js"
+    crossorigin="anonymous"
+  ></script>
+</html>

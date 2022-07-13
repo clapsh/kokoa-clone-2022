@@ -1,0 +1,269 @@
+#chat-screen {
+    /*background color가 다르기 때문 */
+    background-color: #abc1d1;
+    height: 500vh;
+}
+
+#chat-screen .alt-header,
+#chat-screen .status-bar
+{
+    top:0;
+    position: fixed;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #abc1d1;
+    /*뒤에 오는 것 가리기*/
+    /*margin-top: -150px;*/
+}
+#chat-screen .status-bar{
+    z-index: 2;
+}
+#chat-screen .alt-header{
+    z-index: 1;
+}
+
+@keyframes fadeIn {
+    from{
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to{
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.main-chat{
+    margin-top: 150px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.chat__timestamp{
+    color:white;
+    background-color: #92a4b2;
+    padding : 10px 8px ;
+    font-size : 14px;
+    border-radius: 25px;
+    margin-bottom: 25px;
+    animation: fadeIn 0.8s linear;
+}
+
+@keyframes comeFromLeft {
+    from{
+        transform: translateX(-30px);
+    }
+    to{
+        transform: none;
+    }
+}
+
+.message-row{
+    width: 100%;
+    /*왼쪽 정렬을 위해서 필요함*/
+    display: flex;
+    margin-bottom: 25px;
+    animation: comeFromLeft 0.8s linear;
+  
+}
+.message-row img{
+    width: 50px;
+    height: 50px;
+    border-radius: 20px;
+    margin-right: 10px;
+}
+
+.message__author{ 
+    /*margin-bottom: 8px; -> span이므로 block으로 만들어야*/
+    display: block;
+    margin-bottom: 5px;
+}
+.message__info{
+    display: flex;
+    align-items: flex-end;
+}
+.message__bubble{
+    background-color: white;
+    padding:13px;
+    font-size: 18px;
+    border-radius: 15px;
+    border-top-left-radius: 0px;
+    margin-right: 5px; 
+    
+}
+
+@keyframes shake{
+    0%{
+		transform: rotate(0deg);
+	}
+	30%{
+		transform:  rotate(2deg);
+	}
+	60%{
+		transform: rotate(-2deg);
+	}
+    100%{
+		transform: rotate(0deg);
+	}
+	40%{
+		transform: rotate(1deg);
+	}
+	50%{
+		transform: rotate(-2deg);
+	}
+	60%{
+		transform: rotate(1deg);
+	}
+	70%{
+		transform: rotate(2deg);
+	}
+	80%{
+		transform: rotate(1deg);
+	}
+	90%{
+		transform: rotate(0deg);
+	}
+	100%{
+		transform: rotate(-1deg);
+	}
+}
+.message-row .message__bubble{
+    animation: shake 0.3s linear;
+    animation-delay: 0.8s;
+}
+.message-row--own  .message__bubble{
+    animation: shake 0.3s linear;
+    animation-delay: 1.5s;
+}
+.message__author,
+.message__time{
+    opacity: 0.8;
+    font-size: 14px; 
+}
+/*modifier*/
+@keyframes comeFromRight {
+    from{
+        transform: translateX(30px);
+    }
+    to{
+        transform: none;
+    }
+}
+.message-row--own{
+    justify-content: flex-end;
+    animation: comeFromRight 0.8s linear;
+}
+.message-row--own .message__bubble{
+    background-color: var(--yellow);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 0px;
+    margin-right: 0px;
+    margin-left: 5px;
+}
+/*order사용 -> flex childe에만 적용됨 ** message__info(flex)
+.message-row--own .message__bubble{
+    order: 1;
+}
+.message-row--own .message__time{
+    order:0;
+}
+*/
+/*한번에 순서를 바꾸는 법*/
+.message-row--own .message__info {
+    flex-direction: row-reverse;
+    /*
+    컨테이너의 dir 값이 ltr(left to right)이라면 
+    row는 왼쪽부터 시작하는 가로축을, 
+    row-reverse는 오른쪽부터 시작하는 가로축을 나타냅니다.
+    */
+}
+
+.reply{
+   position: fixed;
+   bottom:0;
+   width: 100%;
+   background-color:white;
+   display: flex;
+   justify-content: space-between;
+   padding :5px 25px;
+   box-sizing: border-box;
+   align-items: center;
+   transition: transform 0.3s ease-in-out;
+}
+.reply i {
+    opacity: 0.5;
+}
+.reply .reply__column:first-child{
+    width: 10%;
+}
+.reply .reply__column:last-child{
+    width: 90%;
+    position: relative;
+    
+}
+.reply input{
+    padding: 12px;
+    width: 100%;
+    border: var(--main-border);
+    border-radius: 20px;
+    transition: all 0.3s ease-in-out;
+}
+/*.reply__column:last-child i는 버튼 안에 있는 아이콘까지 선택하게 하므로 
+direct children 선택필요
+*/
+.reply__column:last-child  > i, 
+.reply__column:last-child button{
+    position: absolute;
+    right:-3px;
+    top:6px;
+}
+.reply__column:last-child > i{
+    right: 40px;
+    top:14px;
+}
+
+.reply__column button{
+    background-color: var(--yellow);
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+}
+.reply__column button:focus,
+.reply__column button:active{
+    outline: none;
+}
+.reply__column button i{
+    opacity: 1;
+}
+
+.reply .reply__column:first-child,
+.reply .fa-smaile-wink,
+.reply button{
+    transition: opacity 0.3s ease-in-out;
+}
+
+/*focus-within : 
+ 의사 클래스는 포커스를 받았거나, 포커스를 받은 요소를 포함하는 요소를 나타냅니다. 
+ 즉 스스로 :focus 의사 클래스와 일치하거나,
+  그 자손 중 하나가 :focus와 일치하는 요소를 나타냅니다
+*/
+
+.reply:focus-within .reply__column:first-child,
+.reply:focus-within .fa-smile-wink,
+.reply:focus-within button{
+    opacity: 0;
+}
+.reply input:focus{
+    width: 95vw;
+    transform: translateX(-12%) translateY(-50px);
+    background-color:#abc1d1;
+    color: white;
+
+    border: none;
+}
+.reply:focus-within{
+    transform: translateY(50px);
+}

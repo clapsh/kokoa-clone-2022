@@ -1,0 +1,78 @@
+.more-screen .user-component__subtitle {
+    display: flex;
+}
+.more-screen .user-component__subtitle-alert  {
+    color:red;
+    font-size: 15px;
+    border: 2px solid red;
+    width: 17px;
+    height: 17px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 8px;
+    opacity: 0.8;
+}
+.more-screen .icon-row{
+    margin-top:25px;
+    display: flex;
+    flex-wrap: wrap;
+    /*CSS flex-wrap property는 flex-item 요소들이 강제로 한줄에 배치되게 
+    할 것인지, 또는 가능한 영역 내에서 벗어나지 않고 여러행으로 나누어 표현
+ 할 것인지 결정하는 속성입니다*/
+    
+}
+.more-screen .icon-row__icon{
+    display: flex;
+    /*justify-content: space-between;*/
+    width :25%;
+    padding:10px 0px;
+    box-sizing: border-box;
+    color :rgba(0,0,0,0.8);
+}
+.more-suggestions{
+    margin-top: 50px;
+    border-top: var(--main-border);
+    padding-top: 40px;
+}
+.more-suggestions__title{
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+.more-suggestions__icons{
+    display: flex;
+    align-items: center;
+}
+.more-suggestions__icon{
+    margin-right: 30px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.more-suggestions__icon-image{
+    /*margin:0px 17px;*/
+    margin-bottom: 10px;
+    background-color: var(--yellow);
+    height: 60px;
+    width: 60px;
+    border-radius: 5px;
+    /*아이콘안의 이미지 중앙 정렬*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.more-suggestions__icon-image i{
+    /*이미지 크기 지정 */
+    font-size: 32px;
+}
+.more-suggestions__icon:first-child .more-suggestions__icon-image{
+    color:white;
+}
+.more-suggestions__icon:last-child .more-suggestions__icon-image{
+    background-color: green;
+    color:var(--yellow);
+}
+.hidden {
+    visibility: hidden;
+}

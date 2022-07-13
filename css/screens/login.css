@@ -1,0 +1,57 @@
+/* 코드 작성 스타일 #1 */
+.welcome-header {
+    margin: 90px 0px; /*크롬에서 사진열고 page ruler redux고 크기 제던데*/
+    text-align: center; /*display:fex를 이용할 수도 있지만 h1과 문단이 함께 있기 때뭄ㄴ에 이렇게
+    */
+    display: flex;
+    flex-direction: column; /*because h1 and p was next to each other*/
+    align-items: center;
+  }
+  .welcome-header__title {
+    margin-bottom: 20px;
+    font-size: 25px;
+  }
+  
+  .welcome-header__text {
+    width: 50%;
+    /*text-align: center;50%로 하면 이 <p> 박스가 왼쪽으로만 가있기 때문에 flex를 다시 써야하ㅏㅁ*/
+    opacity: 0.7; /*글자가 회식처럼 보임*/
+  }
+  /*코드 작성 스타일 2 */
+  #login-form {
+    display: flex;
+    flex-direction: column;
+    margin:0px 30px;
+  }
+  
+  #login-form input{
+    padding : 15px 0px;
+    border: none;
+    font-size: 18px;
+    margin-bottom: 25px;
+  }
+  
+  #login-form input:not([type="submit"]) {
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    transition: border-color 0.3s ease-in-out;
+  }
+  #login-form input ::placeholder{
+    color: rgba(0,0,0,0.4);
+  }
+  
+  #login-form input:focus{
+    border-color: var(--yellow);
+  }
+  
+  #login-form input[type="submit"]{
+    background-color: var(--yellow);
+    cursor :pointer;
+    padding: 20px 0px;
+    border-radius: 5px;
+  }
+  #login-form a {
+    text-align: center;
+    text-decoration: none;
+    color: inherit; /*get coloer from father default : black*/
+    font-size: 13px;
+  }

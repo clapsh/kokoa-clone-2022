@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap");
+/*first import*/
+@import "reset.css";
+/*css를 이용해 추가하는 게 좋음 html에 너무 많은 링크 추가 X*/
+@import "variables.css";
+/* Components */
+@import "components/status-bar.css";
+@import "components/nav-bar.css";
+@import "components/screen-header.css";
+@import "components/user-component.css";
+@import "components/badge.css";
+@import "components/points.css";
+@import "components/icon-row.css";
+@import "components/alt-screen.css";
+@import "components/no-mobile.css";
+/* Screens */ 
+@import "screens/login.css";
+@import "screens/friends.css";
+@import "screens/find.css";
+@import "screens/more.css";
+@import "screens/settings.css";
+@import "screens/chat.css";
+body { 
+  /*모든 스크린에 적용할 수 있는 특성*/
+  /*폰트의 종류를 선택 
+    google fonts -> 에서 써조=조됨 
+    폰트를 너무 많이가져오면 시간이 오래 걸리므러
+    사용할 것 만 가져오가!*/
+  font-family: "Open Sans", sans-serif;
+  height: 1000vh;
+  color:#2e363e;
+}
+/*body has a margin -> 브라우저가 미리  설정해놓은 것->없에는 방법 : reset css 
+styles.css에 reset파일 추가 
+브라우저 스타일 없에고 직접 디장ㄴ하는게 더 좋은 방법
+*/
+.main-screen{
+  padding: 0px var(--horizontal-space);
+}
